@@ -1,0 +1,19 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "IAManager:lib"
+
+    - path: "./app/Main.hs"
+      component: "IAManager:exe:iaManage"
+
+    - path: "./app/Paths_IAManager.hs"
+      component: "IAManager:exe:iaManage"
+
+    - path: "./test"
+      component: "IAManager:test:IAManeger-test"
+
+    - path: "./benchmark/Main.hs"
+      component: "IAManager:bench:IAManager-benchmark"
+
+    - path: "./benchmark/Paths_IAManager.hs"
+      component: "IAManager:bench:IAManager-benchmark"

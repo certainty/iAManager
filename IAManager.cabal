@@ -1,0 +1,106 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: c4696601d06092c8e0cc6a226f8dfd8089d3b8b6be5d01b849246c3d7930c286
+
+name:           IAManager
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/certainty/IAManager#readme>
+homepage:       https://github.com/certainty/IAManager#readme
+bug-reports:    https://github.com/certainty/IAManager/issues
+author:         certainty
+maintainer:     david.krentzlin@gmail.com
+copyright:      I don&#39;t care
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/certainty/IAManager
+
+library
+  other-modules:
+      Paths_IAManager
+  hs-source-dirs:
+      src
+  default-extensions: NoImplicitPrelude ConstraintKinds DeriveGeneric DerivingStrategies GeneralizedNewtypeDeriving InstanceSigs KindSignatures LambdaCase OverloadedStrings RecordWildCards NamedFieldPuns ScopedTypeVariables StandaloneDeriving TupleSections TypeApplications ViewPatterns ApplicativeDo DeriveFoldable DeriveFunctor DeriveGeneric DeriveLift DeriveTraversable DerivingStrategies
+  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , bytestring
+    , relude
+    , safe-exceptions
+    , text
+  default-language: Haskell2010
+
+executable iaManage
+  main-is: Main.hs
+  other-modules:
+      Paths_IAManager
+  hs-source-dirs:
+      app
+  default-extensions: NoImplicitPrelude ConstraintKinds DeriveGeneric DerivingStrategies GeneralizedNewtypeDeriving InstanceSigs KindSignatures LambdaCase OverloadedStrings RecordWildCards NamedFieldPuns ScopedTypeVariables StandaloneDeriving TupleSections TypeApplications ViewPatterns ApplicativeDo DeriveFoldable DeriveFunctor DeriveGeneric DeriveLift DeriveTraversable DerivingStrategies
+  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  ld-options: -pthread
+  build-depends:
+      IAManager
+    , base >=4.7 && <5
+    , bytestring
+    , directory
+    , filepath
+    , optparse-applicative
+    , relude
+    , safe-exceptions
+    , text
+  default-language: Haskell2010
+
+test-suite IAManeger-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_IAManager
+  hs-source-dirs:
+      test
+  default-extensions: NoImplicitPrelude ConstraintKinds DeriveGeneric DerivingStrategies GeneralizedNewtypeDeriving InstanceSigs KindSignatures LambdaCase OverloadedStrings RecordWildCards NamedFieldPuns ScopedTypeVariables StandaloneDeriving TupleSections TypeApplications ViewPatterns ApplicativeDo DeriveFoldable DeriveFunctor DeriveGeneric DeriveLift DeriveTraversable DerivingStrategies
+  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      IAManager
+    , base >=4.7 && <5
+    , bytestring
+    , hedgehog
+    , raw-strings-qq
+    , relude
+    , safe-exceptions
+    , tasty
+    , tasty-discover
+    , tasty-hedgehog
+    , tasty-hspec
+    , text
+    , vector
+  default-language: Haskell2010
+
+benchmark IAManager-benchmark
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  other-modules:
+      Paths_IAManager
+  hs-source-dirs:
+      benchmark
+  default-extensions: NoImplicitPrelude ConstraintKinds DeriveGeneric DerivingStrategies GeneralizedNewtypeDeriving InstanceSigs KindSignatures LambdaCase OverloadedStrings RecordWildCards NamedFieldPuns ScopedTypeVariables StandaloneDeriving TupleSections TypeApplications ViewPatterns ApplicativeDo DeriveFoldable DeriveFunctor DeriveGeneric DeriveLift DeriveTraversable DerivingStrategies
+  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      IAManager
+    , base >=4.7 && <5
+    , bytestring
+    , gauge
+    , relude
+    , safe-exceptions
+    , text
+  default-language: Haskell2010
