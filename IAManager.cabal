@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: cb628cf74303298dc3282f8745c7d0add38837406d9ecaa8c851716a49aeaaf7
+-- hash: e22a47e8c5ebb32dcd06e8fbc76a2b5f168fd2f2927cf99e6fffdc9264c8eb47
 
 name:           IAManager
 version:        0.1.0.0
@@ -28,6 +28,9 @@ source-repository head
 library
   exposed-modules:
       Application
+      Commands.Generate
+      Commands.Orphans
+      Files.Markdown
   other-modules:
       Paths_IAManager
   hs-source-dirs:

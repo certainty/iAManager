@@ -1,5 +1,7 @@
 module Application (main) where
 
+import qualified Commands.Generate as Generate
+import qualified Commands.Orphans as Orphans
 import qualified Data.ByteString as ByteString
 import Options.Applicative
 import Relude
@@ -7,22 +9,22 @@ import qualified System.Directory as Directory
 import qualified System.FilePath as FilePath
 
 data Options
-  = OrphansOptions Bool
-  | GenerateOptions
+  = OrphansOptions Orphans.Options
+  | GenerateOptions Generate.Options
   deriving (Eq, Show)
 
 main :: IO ()
 main = do
-  parsedOpts <- execParser opts
-  void $ run
+  (execParser opts) >>= run
   where
     opts =
       info
         (options <**> helper)
         (fullDesc <> header "Manage your iAWriter files")
 
-run :: IO ()
-run = putStrLn "Let's go"
+run :: Options -> IO ()
+run (OrphansOptions opts) = Orphans.run opts
+run (GenerateOptions opts) = Generate.run opts
 
 options :: Parser Options
 options =
@@ -32,7 +34,7 @@ options =
     )
 
 orphansOptions :: Parser Options
-orphansOptions = OrphansOptions <$> switch (long "verbose" <> short 'v' <> help "Print verbose information")
+orphansOptions = OrphansOptions <$> Orphans.parseOptions
 
 generateOptions :: Parser Options
-generateOptions = pure GenerateOptions
+generateOptions = GenerateOptions <$> Generate.parseOptions
